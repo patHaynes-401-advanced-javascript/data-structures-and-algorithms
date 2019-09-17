@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint **/*.js",
-    "test": "jest --verbose --coverage",
+    "test": "jest --verbose --coverage --passWithNoTests",
     "test-watch": "jest --watchAll --verbose --coverage",
     "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },
@@ -23,5 +23,11 @@
   "homepage": "https://github.com/patHaynes-401-advanced-javascript/data-structures-and-algorithms#readme",
   "directories": {
     "doc": "docs"
+  },
+  "dependencies": {
+    "eslint": "^6.4.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
