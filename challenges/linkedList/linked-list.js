@@ -13,6 +13,7 @@ class LinkedList {
 
   insert(value) {
     const newNode = new Node(value);
+    newNode.next = this.head;
     this.head = newNode;
     this.size++;
   }
@@ -29,7 +30,7 @@ class LinkedList {
   }
   
   toString() {
-    let string;
+    let string = '';
     let currentNode = this.head;
     for(let i = 0; i < this.size; i++) {
       string = string + currentNode.value;
