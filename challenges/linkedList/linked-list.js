@@ -28,7 +28,7 @@ class LinkedList {
       }
     } return false;
   }
-  
+
   toString() {
     let string = '';
     let currentNode = this.head;
@@ -38,7 +38,55 @@ class LinkedList {
     }
     return string;
   }
+
+  append(value) {
+    const newNode = new Node(value);
+    let currentNode = this.head;
+    while(currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = newNode;
+    this.size++;
+  }
+
+  insertBefore(value, newVal) {
+    const newNode = new Node(newVal);
+    if(this.head === null) {
+      this.head = newNode;
+      this.size++;
+      return this.head;
+    }
+    if(this.head.value === value) {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    let currentNode = this.head;
+    while(currentNode.next.value !== value) {
+      currentNode.next = newNode;
+    }
+    newNode.next = currentNode.next;
+    currentNode.next = newNode;
+    this.size++;
+    return newNode;
+  }
+
+  insertAfter(value, newVal) {
+    const newNode = new Node(newVal);
+    let currentNode = this.head;
+    if(this.head === null) {
+      this.head = newNode;
+      this.size++;
+      return this.head;
+    }
+    while(currentNode.value !== value) {
+      currentNode = currentNode.next;
+    }
+    newNode.next = currentNode;
+    currentNode.next = newNode;
+    this.size++;
+  }
 }
+
 
 module.exports = {
   Node,

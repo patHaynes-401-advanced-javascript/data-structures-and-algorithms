@@ -47,11 +47,64 @@ describe('linked list tests', () => {
     list.insert('test');
     expect(list.includes('wrong')).toBe(false);
   });
-  
+
   it('can properly return a collection of all the values that exist in the linked list', () => {
     const list = new linkListImport.LinkedList();
     list.insert('test1');
     list.insert('test2');
     expect(list.head.value.toString()).toBe('test2', 'test1');
+  });
+  it('Can successfully add a new node to the end of a linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('test1');
+    list.insert('test2');
+    list.append('test3');
+    expect(list.size).toBe(3);
+    expect(list.head.next.next.value).toBe('test3');
+  });
+  it('Can successfully add multiple nodes to the end of a linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('test1');
+    list.append('test2');
+    list.append('test3');
+    expect(list.size).toBe(3);
+    expect(list.head.next.value).toBe('test2');
+    expect(list.head.next.next.value).toBe('test3');
+  });
+  it('Can successfully insert a node before a node located in the middle of a linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('test1');
+    list.insert('test2');
+    list.insert('test3');
+    list.insert('test4');
+    list.insertBefore('test3', 'test2.5');
+    expect(list.size).toBe(5);
+    expect(list.head.next.value).toBe('test2.5');
+  });
+  it('Can successfully insert a node before the first node of a linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('test1');
+    list.insertBefore('test1', 'test0');
+    expect(list.size).toBe(2);
+    expect(list.head.value).toBe('test0');  
+  });
+  it('Can successfully insert after a node in the middle of the linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('test1');
+    list.insert('test2');
+    list.insert('test3');
+    list.insert('test4');
+    list.insertAfter('test3', 'test3.5');
+    expect(list.size).toBe(5);
+    expect(list.head.next.next.next.next.value).toBe('test3.5');
+  });
+  it('Can successfully insert a node after the last node of the linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('test1');
+    list.insert('test2');
+    list.insert('test3');
+    list.insertAfter('test3', 'test4');
+    expect(list.size).toBe(4);
+    expect(list.head.next.next.next.value).toBe('test4');
   });
 });
