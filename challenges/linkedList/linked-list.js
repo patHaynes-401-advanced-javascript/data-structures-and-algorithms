@@ -41,12 +41,16 @@ class LinkedList {
 
   append(value) {
     const newNode = new Node(value);
-    let currentNode = this.head;
-    while(currentNode.next) {
-      currentNode = currentNode.next;
+    if(this.head === null) {
+      this.head === newNode;
+    } else {
+      let currentNode = this.head;
+      while(currentNode.next) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = newNode;
+      this.size++;
     }
-    currentNode.next = newNode;
-    this.size++;
   }
 
   insertBefore(value, newVal) {
@@ -98,7 +102,7 @@ class LinkedList {
     if(k < 0) {
       return 'not a positive number';
     }
-    if(this.size <= 1){
+    if(this.size <= 1) {
       return 'list is size of 1';
     }
     if(this.size - k !== count) {
@@ -106,6 +110,10 @@ class LinkedList {
       count++;
       return currentNode.value;
     }
+  }
+
+  mergeList(list1, list2) {
+
   }
 }
 
