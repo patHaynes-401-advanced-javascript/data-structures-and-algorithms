@@ -85,6 +85,28 @@ class LinkedList {
     currentNode.next = newNode;
     this.size++;
   }
+
+  kthFromEnd(k) {
+    let currentNode = this.head;
+    let count = 0;
+    if(k > this.size) {
+      return 'greater than length';
+    }
+    if(k === this.size) {
+      return 'k and length of list the same';
+    }
+    if(k < 0) {
+      return 'not a positive number';
+    }
+    if(this.size <= 1){
+      return 'list is size of 1';
+    }
+    if(this.size - k !== count) {
+      currentNode = currentNode.next;
+      count++;
+      return currentNode.value;
+    }
+  }
 }
 
 

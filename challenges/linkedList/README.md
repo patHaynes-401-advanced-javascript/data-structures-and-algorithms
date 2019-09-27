@@ -10,3 +10,5 @@ LOTS OF RESEARCH, this one I needed to comb through a ton of information to figu
 Github: (https://github.com/patHaynes-401-advanced-javascript/data-structures-and-algorithms/compare/linked-list?expand=1)
 
 11-insertions PR: (https://github.com/patHaynes-401-advanced-javascript/data-structures-and-algorithms/pull/5)
+
+11.kthFromEnd(k): ()

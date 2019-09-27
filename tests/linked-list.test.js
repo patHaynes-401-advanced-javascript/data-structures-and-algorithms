@@ -107,4 +107,47 @@ describe('linked list tests', () => {
     expect(list.size).toBe(4);
     expect(list.head.next.next.next.value).toBe('test4');
   });
+  it('Where k is greater than the length of the linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('1');
+    list.insert('2');
+    const k = 4;
+    const result = list.kthFromEnd(k);
+    expect(result).toBe('greater than length');
+  });
+  it('Where k and the length of the list are the same', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('1');
+    list.insert('2');
+    const k = 2;
+    const result = list.kthFromEnd(k);
+    expect(result).toBe('k and length of list the same');
+  });
+  it('Where k is not a positive integer', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('1');
+    list.insert('2');
+    const k = -5;
+    const result = list.kthFromEnd(k);
+    expect(result).toBe('not a positive number')
+  });
+  it('Where the linked list is of a size 1', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('1');
+    const k = 1;
+    const result = list.kthFromEnd(k);
+    const k2 = 0;
+    const result2 = list.kthFromEnd(k2);
+    expect(result).toBe('k and length of list the same');
+    expect(result2).toBe('list is size of 1');
+  });
+  it('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
+    const list = new linkListImport.LinkedList();
+    list.insert('1');
+    list.insert('2');
+    list.insert('3');
+    const k = 1;
+    const result = list.kthFromEnd(k);
+    expect(result).toBe('2');
+  });
 });
