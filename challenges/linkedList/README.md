@@ -11,4 +11,4 @@ Github: (https://github.com/patHaynes-401-advanced-javascript/data-structures-an
 
 11-insertions PR: (https://github.com/patHaynes-401-advanced-javascript/data-structures-and-algorithms/pull/5)
 
-11.kthFromEnd(k): ()
+11.kthFromEnd(k): (https://github.com/patHaynes-401-advanced-javascript/data-structures-and-algorithms/pull/6)
