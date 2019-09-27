@@ -129,7 +129,7 @@ describe('linked list tests', () => {
     list.insert('2');
     const k = -5;
     const result = list.kthFromEnd(k);
-    expect(result).toBe('not a positive number')
+    expect(result).toBe('not a positive number');
   });
   it('Where the linked list is of a size 1', () => {
     const list = new linkListImport.LinkedList();
