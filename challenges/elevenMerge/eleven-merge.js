@@ -1,21 +1,25 @@
 const linkListModel = require('../linkedList/linked-list');
 
-function mergeLists(l1, l2) {
+function mergeLists(listOne, listTwo) {
 
-  const finalLinkedList = new linkListModel.LinkedList();
-  let currentNodeOne = l1.head;
-  let currentNodeTwo = l2.head;
+  const list = new linkListModel.LinkedList();
+  let firstNode = listOne.head;
+  let secondNode = listTwo.head;
+  console.log(firstNode);
+  console.log(secondNode);
 
-  while(currentNodeOne.next !== null && currentNodeTwo.next !== null) {
-    finalLinkedList.append(currentNodeOne.value);
-    finalLinkedList.append(currentNodeTwo.value);
-    currentNodeOne = currentNodeOne.next;
-    currentNodeTwo = currentNodeTwo.next;
+  while(firstNode.next !== null && secondNode.next !== null) {
+    console.log(list.append(firstNode.value));
+    console.log(list.append(secondNode.value));
+    firstNode = firstNode.next;
+    secondNode = secondNode.next;
   }
-  finalLinkedList.append(currentNodeOne.value);
-  finalLinkedList.append(currentNodeTwo.value);
+  list.append(firstNode.value);
+  list.append(secondNode.value);
 
-  return finalLinkedList.head;
+  return list.head;
 }
 
-module.exports = { mergeLists };
+module.exports = { 
+  mergeLists 
+};

@@ -45,7 +45,7 @@ class LinkedList {
       this.head === newNode;
     } else {
       let currentNode = this.head;
-      while(currentNode.next) {
+      while(currentNode.next !== null) {
         currentNode = currentNode.next;
       }
       currentNode.next = newNode;
@@ -112,9 +112,6 @@ class LinkedList {
     }
   }
 
-  mergeList(list1, list2) {
-
-  }
 }
 
 
