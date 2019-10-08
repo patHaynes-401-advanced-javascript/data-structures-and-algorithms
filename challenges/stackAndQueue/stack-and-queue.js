@@ -59,6 +59,7 @@ class Queue {
     let answer;
     if(this.front) {
       answer = this.front.value;
+      this.front = this.front.next;
     }
     return answer;
   }
