@@ -8,7 +8,7 @@ describe('Stack and Queue', () => {
     expect(result.value).toBe('element');
   });
 
-  it.skip('Can successfully push multiple values onto a stack', () => {
+  it('Can successfully push multiple values onto a stack', () => {
     const stack = new stackImport.Stack();
     stack.push('first element');
     stack.push('second element');
