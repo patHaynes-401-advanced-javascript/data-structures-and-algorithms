@@ -10,38 +10,57 @@ class BinaryTree {
   constructor() {
     this.root = null;
   }
-}
 
-preOrder(node) {
-  if (node === null) return [];
 
-  let stack = [];
-  let result = [];
-  stack.push(node);
+  preOrder(node) {
+    if(node === null) return [];
 
-  while (stack.length > 0) {
-    let current = stack.pop();
-    result.push(current.value);
-    if (current.right) stack.push(current.right);
-    if (current.left) stack.push(current.left);
+    let stack = [];
+    let result = [];
+    stack.push(node);
+
+    while(stack.length > 0) {
+      let current = stack.pop();
+      result.push(current.value);
+      if(current.right) stack.push(current.right);
+      if(current.left) stack.push(current.left);
+    }
+    return result;
   }
-  return result;
-}
 
-inOrder(node) {
-  if (node === null) return [];
-  let result = [];
-  stack.push(node);
-
-  while (stack.length > 0) {
-    let current = stack.pop();
-    result.push(current.value);
-    if (current.right) stack.push(current.right);
-    if (current.left) stack.push(current.left);
+  inOrder(node) {
+    if(node === null) return [];
+    let result = [];
+    let stack = [];
+    let pointerNode = node;
+    while(stack.length !== 0 || pointerNode !== null) {
+      if(pointerNode !== null) {
+        stack.push(pointerNode);
+        pointerNode = pointerNode.left;
+      } else {
+        pointerNode = stack.pop();
+        result.push(pointerNode.value);
+        pointerNode = pointerNode.right;
+      }
+    }
+    return result;
   }
-  return result;
-}
 
-postOrder(node) {
-
+  postOrder(node) {
+    if(node === null) return [];
+    let result = [];
+    let stack = [];
+    stack.push(node);
+    while(stack.length !== 0) {
+      let pointer = stack.pop();
+      result.unshift(pointer.value);
+      if(pointer.left) {
+        stack.push(pointer.left);
+      }
+      if(pointer.right) {
+        stack.push(pointer.right);
+      }
+    }
+    return result;
+  }
 }
