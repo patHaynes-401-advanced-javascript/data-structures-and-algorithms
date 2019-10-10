@@ -11,7 +11,6 @@ class BinaryTree {
     this.root = null;
   }
 
-
   preOrder(node) {
     if(node === null) return [];
 
@@ -64,3 +63,44 @@ class BinaryTree {
     return result;
   }
 }
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  add(value) {
+    let node = this.root;
+    return recurse(value, node);
+  }
+
+  contains(value) {
+    let node = this.root;
+    return recurseFind(value, node);
+  }
+
+}
+
+function recurse(value, node) {
+  let dir;
+  value > node.value ? dir = 'right' : dir = 'left';
+  if(node[dir]) {
+    return recurse(value, node[dir]);
+  }
+  return node[dir] = new Node(value);
+}
+
+function recurseFind(value, node) {
+  let dir;
+  if(value === node.value) return true;
+  value > node.value ? dir = 'right' : dir = 'left';
+  if(node[dir]) return recurseFind(value, node[dir]);
+  else return false;
+
+}
+
+module.exports = {
+  Node,
+  BinaryTree,
+  BinarySearchTree
+};
