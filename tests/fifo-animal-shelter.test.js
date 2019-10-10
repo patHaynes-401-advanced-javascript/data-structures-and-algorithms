@@ -58,8 +58,36 @@ describe('linked list tests', () => {
     expect(queue.dogQueue.front.value).toEqual('Summit');
   });
 
-  it.skip('returns an error if you try to remove more than are available', () => {
-
+  it('returns an error if you try to remove more than are available', () => {
+    const queue = new AnimalShelter();
+    const firstKitty = {
+      type: 'cat',
+      name: 'Chirpa'
+    };
+    const secondKitty = {
+      type: 'cat',
+      name: 'Fluffy'
+    };
+    const firstPuppy = {
+      type: 'dog',
+      name: 'Kenobi'
+    };
+    const secondPuppy = {
+      type: 'dog',
+      name: 'Summit'
+    };
+    queue.enqueue(firstKitty);
+    queue.enqueue(secondKitty);
+    queue.enqueue(firstPuppy);
+    queue.enqueue(secondPuppy);
+    queue.dequeue('cat');
+    queue.dequeue('cat');
+    const firstResult = queue.dequeue('cat');
+    queue.dequeue('dog');
+    queue.dequeue('dog');
+    const secondResult = queue.dequeue('dog');
+    expect(firstResult).toEqual('the kitties are gone!');
+    expect(secondResult).toEqual('the puppies are gone!');
   });
 
 
