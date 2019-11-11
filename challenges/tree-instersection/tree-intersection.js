@@ -5,7 +5,6 @@ function treeInterection(firstTree, secondTree) {
   for(let i = 0; i < treeA.length; i++) {
     if(treeB.includes(treeA[i])) commonArr.push(treeA[i]);
   }
-  console.log(commonArr);
   return commonArr;
 }
 

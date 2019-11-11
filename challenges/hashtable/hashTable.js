@@ -16,9 +16,10 @@ class HashTable {
     return +numString % this.size;
   }
   add(key, value) {
-    const hash = this.hash(key);
-
-    this.buckets[hash] = [key, value];
+    let index = this.hash(key);
+    if(!this.buckets[index]) this.buckets[index].push([key, value]);
+    else this.buckets[index] = ([key, value]);
+    return index;
   }
   get(key) {
     const hash = this.hash;
@@ -33,6 +34,7 @@ class HashTable {
     }
     return contents;
   }
+
   contains(key) {
     const hash = this.hash(key);
     const bucket = this.buckets[hash];
